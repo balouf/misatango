@@ -2,7 +2,7 @@
 # coding: utf-8
 
 from pathlib import Path
-import subprocess
+# import subprocess
 import os
 from datetime import datetime
 
@@ -27,10 +27,11 @@ for f in sources.glob("*"):
             update = True
     if update:
         print(f"{f} to be compiled!")
-        process = subprocess.run(['lilypond', '-dno-point-and-click', str(f)],
-                                 shell=True,
-                                 stdout=subprocess.PIPE,
-                                 universal_newlines=True)
+        os.system(f'lilypond -dno-point-and-click {f}')
+        # process = subprocess.run(['lilypond', '-dno-point-and-click', str(f)],
+        #                          shell=True,
+        #                          stdout=subprocess.PIPE,
+        #                          universal_newlines=True)
         for midi in Path(".").glob('*.mid'):
             wav = midi.with_suffix(".wav")
             mp3 = midi.with_suffix(".mp3")

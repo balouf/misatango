@@ -46,7 +46,7 @@ for f in sources.glob("*"):
         for o in Path(".").glob('*'):
             if o.is_file():
                 suf = o.suffix
-                if suf not in ['.pdf', '.mid', '.mp3']:
+                if suf not in ['.pdf', '.midi', '.mp3']:
                     continue
                 print(o)
                 stem = o.stem.replace('--', '-')

@@ -27,7 +27,7 @@ for f in sources.glob("*"):
             update = True
     if update:
         print(f"{f} to be compiled!")
-        os.system(f'lilypond -dno-point-and-click {f}')
+        os.system(f'./lilypond-2.24.2/bin/lilypond -dno-point-and-click {f}')
         # process = subprocess.run(['lilypond', '-dno-point-and-click', str(f)],
         #                          shell=True,
         #                          stdout=subprocess.PIPE,

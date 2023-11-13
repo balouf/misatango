@@ -2,15 +2,8 @@
 # coding: utf-8
 
 from pathlib import Path
-# import subprocess
 import os
 from datetime import datetime
-
-# lily = Path(r"c:\Users\Fabien\AppData\Roaming\lilypond-2.24.2\bin\lilypond.exe")
-# timidity = Path(r"c:\Users\Fabien\AppData\Roaming\TiMidity++-2.15.0\timidity.exe")
-# normalize = Path(r"ffmpeg-normalize.exe")
-#  ffmpeg-normalize.exe .\out.wav -nt peak -t -1 -c:a mp3 -o out3.mp3
-# .\timidity.exe C:\Users\fabienma\git\musique\coro_s\hymn\hymn.mid -Ow -o out.wav
 
 sources = Path("lilypond")
 for f in sources.glob("*"):
@@ -28,19 +21,11 @@ for f in sources.glob("*"):
     if update:
         print(f"{f} to be compiled!")
         os.system(f'./lilypond-2.24.2/bin/lilypond -dno-point-and-click {f}')
-        # process = subprocess.run(['lilypond', '-dno-point-and-click', str(f)],
-        #                          shell=True,
-        #                          stdout=subprocess.PIPE,
-        #                          universal_newlines=True)
         for midi in Path(".").glob('*.midi'):
             print(midi)
             wav = midi.with_suffix(".wav")
             mp3 = midi.with_suffix(".mp3")
             os.system(f"timidity {midi} -Ow -o {wav}")
-            # process = subprocess.run([str(timidity), f'{midi}', '-Ow', f'-o{wav}'],
-            #                          shell=True,
-            #                      stdout=subprocess.PIPE,
-            #                      universal_newlines=True)
             os.system(f'ffmpeg-normalize {wav} -nt peak -t -1 -c:a mp3 -o {mp3}')
             wav.unlink()
         for o in Path(".").glob('*'):

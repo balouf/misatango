@@ -2,4 +2,4 @@
 
 ## 0.1.0 (2023-11-12): First release
 
-- First release on PyPI.
+- Deploy player on Github Pages.

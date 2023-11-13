@@ -30,6 +30,7 @@ armure = {
 
 sop_music = {
   \override TextSpanner.bound-details.left.text = "allarg."
+% \override Staff.VerticalAxisGroup.remove-empty = ##f
 R1*11 
 \tempo "a tempo"
 a'1\(^\f^"Solo" g2..\) r8
@@ -38,7 +39,8 @@ c1\(^\cresc bes2..\) r8
 r4 d--^\< c-- b-- d2 c
 bes2.^\>^\startTextSpan 4 a1\!\stopTextSpan
 \bar "||"\break \tempo 4=100
-R1*8
+% \override Staff.VerticalAxisGroup.remove-empty = ##t
+\hideNotes a16 r2... \unHideNotes R1*7
 \bar "||"\break
 a1\(^\f^"tutti" g2..\) r8
 bes1\( a2..\) r8
@@ -72,7 +74,7 @@ sop_lyrics = \lyricmode {
   San -- ctus, __
   San -- ctus, __
   Do -- mi -- nus De -- us Sa -- ba -- oth.
-
+  ""
   San -- ctus, __
   San -- ctus, __
   San -- ctus, __
@@ -364,7 +366,7 @@ r c'-. <c es fis a>4->
 \bar "||" \tempo 4=100
 r8 <a bes d e>->_\mp r4 4-- r4
 r8 8-> r8 8-> r8 8-> r4
-r8 8-> r4 4-- r4 r8 4-> 8-. 16 16 4.->
+r8 8-> r4 4-- r4 r8 4-> 8-. 16 16 4.->\break
 r8 8-> r4 4-- r4 r8 8-> r8 8-> r8 8-> r4
 r8 8-> r4 4-- r4
 r8 a->(_\< bes) d-. e->( g) bes->( fis)\!

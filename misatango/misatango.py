@@ -32,7 +32,7 @@ for f in sources.glob("*"):
         #                          shell=True,
         #                          stdout=subprocess.PIPE,
         #                          universal_newlines=True)
-        for midi in Path(".").rglob('*.mid'):
+        for midi in Path(".").glob('*.midi'):
             print(midi)
             wav = midi.with_suffix(".wav")
             mp3 = midi.with_suffix(".mp3")
@@ -43,7 +43,7 @@ for f in sources.glob("*"):
             #                      universal_newlines=True)
             os.system(f'ffmpeg-normalize {wav} -nt peak -t -1 -c:a mp3 -o {mp3}')
             wav.unlink()
-        for o in Path(".").rglob('*'):
+        for o in Path(".").glob('*'):
             if o.is_file():
                 suf = o.suffix
                 if suf not in ['.pdf', '.mid', '.mp3']:

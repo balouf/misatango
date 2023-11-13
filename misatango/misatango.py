@@ -32,7 +32,8 @@ for f in sources.glob("*"):
         #                          shell=True,
         #                          stdout=subprocess.PIPE,
         #                          universal_newlines=True)
-        for midi in Path(".").glob('*.mid'):
+        for midi in Path(".").rglob('*.mid'):
+            print(midi)
             wav = midi.with_suffix(".wav")
             mp3 = midi.with_suffix(".mp3")
             os.system(f"timidity {midi} -Ow -o {wav}")
@@ -42,11 +43,12 @@ for f in sources.glob("*"):
             #                      universal_newlines=True)
             os.system(f'ffmpeg-normalize {wav} -nt peak -t -1 -c:a mp3 -o {mp3}')
             wav.unlink()
-        for o in Path(".").glob('*'):
+        for o in Path(".").rglob('*'):
             if o.is_file():
                 suf = o.suffix
                 if suf not in ['.pdf', '.mid', '.mp3']:
                     continue
+                print(o)
                 stem = o.stem.replace('--', '-')
                 dest.mkdir(exist_ok=True)
                 o.replace(dest / f"{stem}{suf}")

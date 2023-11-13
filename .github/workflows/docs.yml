@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   docs:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-23.04
     steps:
       - name: Check out
         uses: actions/checkout@v3

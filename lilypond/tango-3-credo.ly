@@ -244,7 +244,7 @@ alt_music = {
   R1*17
   r8 c-.^\fa 8-. 8-. d-. 8-. 8-. c16 d
   es8-. 8-> r c-. aes'-. 4-> d,8-.
-  g-> c,-> r c-> f-. 4-> d8-.
+  g-> c,-> r c-. f-. 4-> d8-.
   f-> es-. 8-> des-. c8 16 16 a8-. b-. 
   c4 r8 es->~( 8) 4-> d8 4 c es f8 8 g2 2
   r8 4 es8 f8 16 16 g8( f) es2 r2
